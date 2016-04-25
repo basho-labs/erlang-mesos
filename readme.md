@@ -76,18 +76,20 @@ sudo apt-get install libprotobuf-dev protobuf-compiler
 
 ```
 git clone .....
-cd erlang-mesos
+cd mesos-executor-bindings
 ```
 
-Get the project dependancies
+Get the project dependencies
 
 ```
 ./rebar get-deps
 ```
 
-Compile the application including the generated modules from the .proto file
+Compile the application including the generated modules from the .proto file (assuming Mesos is installed in /usr/local)
 
 ```
+export CXXFLAGS="-I/usr/local/include"
+export LDFLAGS="-L/usr/local/lib"
 ./rebar compile
 ```
 
